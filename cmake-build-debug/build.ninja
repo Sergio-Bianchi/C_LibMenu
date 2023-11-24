@@ -41,7 +41,7 @@ include CMakeFiles/rules.ninja
 
 cmake_ninja_workdir = /home/jag/CLionProjects/C_LibMenu/cmake-build-debug/
 # =============================================================================
-# Object build statements for STATIC_LIBRARY target C_LibMenu
+# Object build statements for EXECUTABLE target C_LibMenu
 
 
 #############################################
@@ -57,19 +57,19 @@ build CMakeFiles/C_LibMenu.dir/library.c.o: C_COMPILER__C_LibMenu_unscanned_Debu
 
 
 # =============================================================================
-# Link build statements for STATIC_LIBRARY target C_LibMenu
+# Link build statements for EXECUTABLE target C_LibMenu
 
 
 #############################################
-# Link the static library libC_LibMenu.a
+# Link the executable C_LibMenu
 
-build libC_LibMenu.a: C_STATIC_LIBRARY_LINKER__C_LibMenu_Debug CMakeFiles/C_LibMenu.dir/library.c.o
-  LANGUAGE_COMPILE_FLAGS = -g
+build C_LibMenu: C_EXECUTABLE_LINKER__C_LibMenu_Debug CMakeFiles/C_LibMenu.dir/library.c.o
+  FLAGS = -g
   OBJECT_DIR = CMakeFiles/C_LibMenu.dir
   POST_BUILD = :
   PRE_LINK = :
-  TARGET_FILE = libC_LibMenu.a
-  TARGET_PDB = C_LibMenu.a.dbg
+  TARGET_FILE = C_LibMenu
+  TARGET_PDB = C_LibMenu.dbg
 
 
 #############################################
@@ -97,8 +97,6 @@ build rebuild_cache: phony CMakeFiles/rebuild_cache.util
 # =============================================================================
 # Target aliases.
 
-build C_LibMenu: phony libC_LibMenu.a
-
 # =============================================================================
 # Folder targets.
 
@@ -107,7 +105,7 @@ build C_LibMenu: phony libC_LibMenu.a
 #############################################
 # Folder: /home/jag/CLionProjects/C_LibMenu/cmake-build-debug
 
-build all: phony libC_LibMenu.a
+build all: phony C_LibMenu
 
 # =============================================================================
 # Built-in targets
