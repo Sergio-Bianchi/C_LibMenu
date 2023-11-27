@@ -20,22 +20,18 @@ unsigned long rawHeight;
 
 
 int intMargin;
+int marginTitle;
+int marginAuthor;
+
 char * textAuthor;
 char * textTile;
+
+
 
 unsigned long widthAuthor;
 unsigned long widthTitle;
 unsigned long maxWidth = 200;
 
-
-
-int main(int argc, char * argv[]) {
-     /*This function is only for testing purposes*/
-    menu(0, 2, "Titolo", "autore");
-
-
-    return 1;
-}
 
 
 void menu(int OS, int margin, char * title, char * author) {
@@ -63,10 +59,60 @@ void menu(int OS, int margin, char * title, char * author) {
         rawWidth = maxWidth + intMargin * 2 + 2;
 
 
-        for (int i = 0; i <= rawWidth; ++i) {
+        for (int i = 0; i < rawWidth; ++i) {
             printf("=");
         }
         printf("\n");
+
+
+
+        /* TODO
+         * Move the code below to a function. I'll have to repeat it a lot of times
+         * */
+        printf("|"); // Line beginning
+
+        // Assign correct margin to vars
+
+        marginTitle = (rawWidth - 2 - widthTitle) / 2;
+        for (int i = 0; i < marginTitle; ++i) {
+            printf(" ");
+        }
+        printf("%s", title);
+        for (int i = 0; i < marginTitle; ++i) {
+            printf(" ");
+        }
+
+        if (maxWidth%2 != widthTitle%2) printf(" ");
+
+        printf("|\n"); // Line end
+
+
+        printf("|"); // Line beginning
+
+        // Assign correct margin to vars
+
+        marginAuthor = (rawWidth - 2 - widthAuthor) / 2;
+        for (int i = 0; i < marginAuthor; ++i) {
+            printf(" ");
+        }
+        printf("%s", author);
+        for (int i = 0; i < marginAuthor; ++i) {
+            printf(" ");
+        }
+
+        if (maxWidth%2 != widthAuthor%2) printf(" ");
+
+        printf("|\n"); // Line end
+
+
+        for (int i = 0; i < rawWidth; ++i) {
+            printf("=");
+        }
+        printf("\n");
+
+
+
+
 
 
     }

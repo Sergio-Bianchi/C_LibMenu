@@ -3,8 +3,5 @@ project(C_LibMenu C)
 
 set(CMAKE_C_STANDARD 11)
 
-#[[
 add_library(C_LibMenu library.c)
-]]
 
-add_executable(C_LibMenu library.c)
