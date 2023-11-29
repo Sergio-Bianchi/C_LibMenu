@@ -9,19 +9,19 @@
 
 
 
-int libOS = 0; // WiP
+/*int libOS = 0; // WiP
 
 
-int titleLenght;
-int authorLenght;
+int titleLength;
+int authorLength;
 
 unsigned long rawWidth;
 unsigned long rawHeight;
 
 
-int intMargin;
-int marginTitle;
-int marginAuthor;
+unsigned long intMargin;
+unsigned long marginTitle;
+unsigned long marginAuthor;
 
 char * textAuthor;
 char * textTile;
@@ -30,19 +30,57 @@ char * textTile;
 
 unsigned long widthAuthor;
 unsigned long widthTitle;
-unsigned long maxWidth = 200;
+unsigned long widthDescription;
+unsigned long maxWidth = 200;*/
 
 
 
-void menu(int OS, int margin, char * title, char * author) {
+void menu(int OS, int margin, char * title, char * author, char * description) {
+
+
+    /*
+     * Per adesso le variabili globali saranno locali, dato che non ho bisogno di altre funzioni
+     * In futuro non so cosa potrei fare, ma vedremo in futuro
+     * */
+
+
+
+
+    int libOS = 0; // WiP
+
+
+    int titleLength;
+    int authorLength;
+
+    unsigned long rawWidth;
+    unsigned long rawHeight;
+
+
+    unsigned long intMargin;
+    unsigned long marginTitle;
+    unsigned long marginAuthor;
+
+    char * textAuthor;
+    char * textTile;
+
+
+
+    unsigned long widthAuthor;
+    unsigned long widthTitle;
+    unsigned long widthDescription;
+    unsigned long maxWidth = 200;
+
+
 
     //libOS = OS;
+
 
     textTile = title;
     intMargin = margin;
 
     widthTitle= strlen(title);
     widthAuthor= strlen(author);
+    widthDescription = strlen(description);
     maxWidth = widthTitle;
 
     if(OS) {
@@ -53,16 +91,17 @@ void menu(int OS, int margin, char * title, char * author) {
         // This option will be selected only if the OS is set to 0
 
         if (widthAuthor>maxWidth) maxWidth = widthAuthor;
+        if (widthDescription>maxWidth) maxWidth = widthDescription;
         // ... and all the variables check
 
         // Assign values to global variables
         rawWidth = maxWidth + intMargin * 2 + 2;
 
-
-        for (int i = 0; i < rawWidth; ++i) {
-            printf("=");
+        printf("+");
+        for (int i = 0; i < rawWidth-2; ++i) {
+            printf("-");
         }
-        printf("\n");
+        printf("+\n");
 
 
 
@@ -102,13 +141,13 @@ void menu(int OS, int margin, char * title, char * author) {
 
         if (maxWidth%2 != widthAuthor%2) printf(" ");
 
-        printf("|\n"); // Line end
+        printf("|\n+"); // Line end
 
 
-        for (int i = 0; i < rawWidth; ++i) {
-            printf("=");
+        for (int i = 0; i < rawWidth-2; ++i) {
+            printf("-");
         }
-        printf("\n");
+        printf("+\n");
 
 
 
